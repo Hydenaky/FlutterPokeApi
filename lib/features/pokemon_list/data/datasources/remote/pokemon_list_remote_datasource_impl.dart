@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:pokedex/core/data/constants/constants.dart';
 import 'package:pokedex/features/pokemon_list/data/datasources/pokemons_list_datasource.dart';
 
 class PokemonsListRemoteDatasourceImpl extends ApiService
@@ -10,7 +11,7 @@ class PokemonsListRemoteDatasourceImpl extends ApiService
   Future<Response<dynamic>> getPaginatedPokemons(int pageIndex, int pageSize) {
     try {
       return dio.get(
-        "https://pokeapi.co/api/v2/pokemon/?limit=$pageIndex&offset=$pageSize",
+        "${Constants.api}pokemon/?limit=$pageIndex&offset=$pageSize",
       );
     } catch (e) {
       rethrow;

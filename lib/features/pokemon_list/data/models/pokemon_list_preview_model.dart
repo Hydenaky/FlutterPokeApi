@@ -1,9 +1,17 @@
-import 'package:dio/dio.dart';
+import 'package:pokedex/features/pokemon_list/domain/entities/pokemon_list_preview_entity.dart';
 
 class PokemonListPreviewModel {
   //Comunication
-  dynamic fromJson(Response<dynamic> response) {
-    //response.data['results']['name'];
-    return response.data['results'];
+  List<PokemonListPreviewEntity> fromJson({
+    required Map<String, dynamic> data,
+  }) {
+    final list = data['results'] as List;
+
+    return list
+        .map(
+          (item) =>
+              PokemonListPreviewEntity(name: item['name'], url: item['url']),
+        )
+        .toList();
   }
 }

@@ -1,3 +1,5 @@
+import 'package:dio/dio.dart';
+
 abstract class PokemonsListDatasource {
-  Future<dynamic> getPaginatedPokemons(int pageIndex, int pageSize);
+  Future<Response<dynamic>> getPaginatedPokemons(int pageIndex, int pageSize);
 }

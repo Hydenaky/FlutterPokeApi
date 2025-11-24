@@ -5,6 +5,6 @@ class GetPaginatedPokemonsUseCases {
 
   final PokemonsListRepository repository;
 
-  Future getPaginatedPokemons(int pageIndex, int pageSize) =>
+  Future call(int pageIndex, int pageSize) =>
       repository.getPaginatedPokemons(pageIndex, pageSize);
 }
